@@ -1,0 +1,22 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Exchange rate</th>
+        <th scope="col">Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let fxRate of currentFxRates">
+        <td>{{ fxRate.sourceCurrency }}</td>
+        <td>{{ fxRate.targetCurrency }}</td>
+        <td>{{ fxRate.exchangeRate }}</td>
+        <td>{{ fxRate.date }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

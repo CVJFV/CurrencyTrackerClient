@@ -1,0 +1,22 @@
+<div>
+  <label>
+    Select currency:
+    <select id="targetCurrency" [formControl]="historyForm" (change)="makeGraph()">
+      <option *ngFor="let fxRate of currentFxRates" [value]="fxRate.targetCurrency">{{ fxRate.targetCurrency }}</option>
+    </select>
+  </label>
+</div>
+<div class="chart">
+  <canvas baseChart
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+  </canvas>
+</div>
+

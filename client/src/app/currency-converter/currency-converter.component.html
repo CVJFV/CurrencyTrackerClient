@@ -1,0 +1,23 @@
+<div>
+  <ng-form [formGroup]="converterForm" (change)="calculate()">
+    <label>
+      Convert:
+      <select id="sourceCurrency">
+        <option [value]="'EUR'">EUR</option>
+      </select>
+    </label>
+    <label>
+      Amount:
+      <input type="text" formControlName="amount" [value]="amount" (keyup)="calculate()">
+    </label>
+    <label>
+      To:
+      <select id="targetCurrency" formControlName="targetCurrencies">
+        <option *ngFor="let fxRate of currentFxRates" [value]="fxRate.targetCurrency">{{ fxRate.targetCurrency }}</option>
+      </select>
+    </label>
+    <label>1 : {{exchangeRate}}</label>
+    <label>{{targetAmount.toPrecision(6)}}</label>
+  </ng-form>
+</div>
+
